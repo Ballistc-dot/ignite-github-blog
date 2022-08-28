@@ -7,9 +7,30 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'FiraCode';
+    src: url('/fonts/FiraCode-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
 @layer base {
     body {
         @apply font-Nunito;
-        @apply bg-slate-900
+        @apply bg-slate-900;
     }
+    pre div {
+        @apply bg-slate-700 !important;
+    }
+    code {
+        @apply font-firacode !important;
+    }
+}
+
+.text-over {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
 }

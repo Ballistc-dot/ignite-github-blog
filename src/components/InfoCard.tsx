@@ -37,6 +37,7 @@ export function InfoCard({ name, type }: InfoCardProps) {
       />
       <span className="text-slate-100 text-xs sm:text-text-s">
         {name} {type === 'followers' && 'Seguidores'}
+        {type === 'comments' && 'comentários'}
       </span>
     </div>
   )
