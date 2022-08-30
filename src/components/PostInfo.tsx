@@ -4,9 +4,9 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
+import { formatDateToRelative } from '../utils/formatDateToRelative'
 import { InfoCard } from './InfoCard'
-import { formatDistance } from 'date-fns'
-import ptBR from 'date-fns/locale/pt-BR'
+
 interface PostInfoProps {
   username: string
   createdAt: string
@@ -22,10 +22,7 @@ export function PostInfo({
   title,
   url,
 }: PostInfoProps) {
-  const formattedDate = formatDistance(new Date(createdAt), new Date(), {
-    addSuffix: true,
-    locale: ptBR,
-  })
+  const formattedDate = formatDateToRelative(createdAt)
   return (
     <div className="lg:w-[54rem] h-[10.5rem] bg-slate-800 mx-auto mt-[-5.25rem] rounded-[10px] sm:p-8 p-2 w-full">
       <header className="flex justify-between">

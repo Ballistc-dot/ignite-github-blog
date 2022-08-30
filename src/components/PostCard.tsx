@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { formatDateToRelative } from '../utils/formatDateToRelative'
 
 interface Post {
   title: string
@@ -12,12 +13,15 @@ interface PostCardProps {
 }
 
 export function PostCard(props: PostCardProps) {
+  // eslint-disable-next-line camelcase
   const { title, body, created_at, number: postId } = props.post
   const navigate = useNavigate()
 
   function handlePostClick() {
     navigate(`/post/${postId}`)
   }
+
+  const formmatedDate = formatDateToRelative(created_at)
 
   return (
     <div
@@ -28,7 +32,7 @@ export function PostCard(props: PostCardProps) {
         <h3 className="max-w-[15rem] leading-[160%] text-slate-100 text-title-m font-bold">
           {title}
         </h3>
-        <span className="text-slate-400 text-text-s ">Há 1 dia</span>
+        <span className="text-slate-400 text-text-s ">{formmatedDate}</span>
       </header>
       <p className="mt-5 text-text-m text-slate-300 overflow-ellipsis text-over">
         {body}
