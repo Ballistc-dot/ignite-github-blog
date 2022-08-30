@@ -27,8 +27,8 @@ const SearchPostSchema = zod.object({ query: zod.string() })
 
 type SearchPostProps = zod.infer<typeof SearchPostSchema>
 
-const username = import.meta.env.VITE_GITHUB_USER
-const repo = import.meta.env.VITE_GITHUB_REPO
+const username = process.env.VITE_GITHUB_USER
+const repo = process.env.VITE_GITHUB_REPO
 
 export function Home() {
   const [profile, setProfile] = useState<IUserProfile>({} as IUserProfile)
@@ -40,7 +40,7 @@ export function Home() {
 
   async function fetchingPosts() {
     const response = await api.get<IPosts[]>(
-      '/repos/ballistc-dot/ignite-github-blog/issues',
+      `/repos/${username}/${repo}/issues`,
     )
     const postsData = response.data
 

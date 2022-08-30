@@ -18,13 +18,16 @@ interface IPost {
   url: string
 }
 
+const githubUsername = process.env.VITE_GITHUB_USER
+const repo = process.env.VITE_GITHUB_REPO
+
 export function Post() {
   const [post, setPost] = useState<IPost>({} as IPost)
   const { id } = useParams()
 
   async function fetchingPost() {
     const response = await api.get(
-      `/repos/ballistc-dot/ignite-github-blog/issues/${id}`,
+      `/repos/${githubUsername}/${repo}/issues/${id}`,
     )
     const {
       title,
