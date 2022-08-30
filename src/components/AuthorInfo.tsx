@@ -1,13 +1,13 @@
 /* eslint-disable camelcase */
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { UserProfile } from '../pages/Home'
+import { IUserProfile } from '../pages/Home'
 import { InfoCard } from './InfoCard'
 
 type InfoCardTypes = 'followers' | 'github' | 'organization'
 
 type AuthorInfoProps = {
-  profile: UserProfile
+  profile: IUserProfile
 }
 
 export function AuthorInfo(props: AuthorInfoProps) {
