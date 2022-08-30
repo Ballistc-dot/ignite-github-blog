@@ -79,7 +79,6 @@ export function Home() {
   }
 
   async function searchingPosts(data: SearchPostProps) {
-    console.log('hey')
     const response = await api.get(
       `/search/issues?q=${data.query}%20repo:${username}/${repo}`,
     )
