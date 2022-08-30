@@ -18,8 +18,8 @@ interface IPost {
   url: string
 }
 
-const githubUsername = process.env.VITE_GITHUB_USER
-const repo = process.env.VITE_GITHUB_REPO
+const githubUsername = import.meta.env.VITE_GITHUB_USER
+const repo = import.meta.env.VITE_GITHUB_REPO
 
 export function Post() {
   const [post, setPost] = useState<IPost>({} as IPost)
